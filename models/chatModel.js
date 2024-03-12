@@ -32,3 +32,9 @@ chatSchema.statics.getAllMsg = async function(){
 
     return messages;
 }
+
+const chatModel = mongoose.model('chatTab', chatSchema);
+
+module.exports = {
+    chatModel
+}
