@@ -2,26 +2,23 @@ const express = require('express');
 const http = require("http");
 const {port} = require('./config.js');
 const {Server} = require("socket.io");
-const cors = require("cors");
+const path = require('path');
 
 const app = express();
-app.use(cors());
-
+app.use(express.static(path.resolve('./public')));
 const server = http.createServer(app);
 
-const io = new Server(server, {
-    cors: {origin:"http://localhost:3000", methods:["GET", "POST"]}
-});
+const io = new Server(server);
 
 io.on("connection",(socket)=>{
-    console.log(`new user connected ${socket.id}`);
+    //console.log(`new user connected ${socket.id}`);
     socket.on("send", (data)=>{
-        socket.broadcast.emit("receive", data);
+        socket.broadcast.emit("broadcast", data);
     })
 })
 
 app.get('/',(req,res)=>{
-    res.status(201).json('Wazzzup');
+    return res.sendFile('/public/index.html');
 })
 
 
