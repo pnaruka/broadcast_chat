@@ -1,9 +1,11 @@
 const express = require('express');
 const {port, DB_URL} = require('./config.js');
 const mongoose =  require('mongoose');
+const { ChatRouter } = require('./routes/chatRoute.js');
 
 const app = express();
 app.use(express.json());
+app.use('/chat', ChatRouter);
 
 app.get('/',(req,res)=>{
     res.status(201).json('Wazzzup');
