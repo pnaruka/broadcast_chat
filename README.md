@@ -7,8 +7,7 @@ This is a simple application to broadcast messages from a user to all other conn
 ## Installation:
 To install the project, follow these steps:
 
-### Clone the repository:
-`git clone https://github.com/pnaruka/broadcast_chat`\ 
+Clone the repository: `git clone https://github.com/pnaruka/broadcast_chat`\
 Navigate to the project directory: `cd broadcast_chat`
 
 Install dependencies: `npm install`
