@@ -9,10 +9,12 @@
 
 <body>
     <h1>Broadcast</h1>
+    <!--Input area and button to send the message-->
     <div id="inpArea" class="inpArea">
         <input type="text" id="message" placeholder="Type here..." />
         <button id="sendBtn">Send</button>
     </div>
+    <!--area to display the received message-->
     <div id="msgArea" class="msgArea">
         <h3 id="receivedMsg"></h3>
     </div>
@@ -24,13 +26,16 @@
         const msgInput = document.getElementById("message");
         const receivedMsg = document.getElementById("receivedMsg");
 
+        //set the text for recievedMsg tag on a broadcast request
         socket.on("broadcast", (message) => {
             receivedMsg.innerHTML = message;
         });
 
+        //send the message to server on button click
         sendBtn.addEventListener("click", (e) => {
             const message = msgInput.value;
             msgInput.value = "";
+            
             socket.emit("send", message);
         });
     </script>
