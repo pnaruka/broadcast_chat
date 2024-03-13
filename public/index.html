@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Broadcast</title>
 </head>
+
 <body>
-    <h1>Let's Chat</h1>
-    <input type="text" id="message" placeholder="Type here..." />
-    <button id="sendBtn">Send</button>
-    <h3 id="receivedMsg"></h3>
+    <h1>Broadcast</h1>
+    <div id="inpArea" class="inpArea">
+        <input type="text" id="message" placeholder="Type here..." />
+        <button id="sendBtn">Send</button>
+    </div>
+    <div id="msgArea" class="msgArea">
+        <h3 id="receivedMsg"></h3>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -18,14 +24,15 @@
         const msgInput = document.getElementById("message");
         const receivedMsg = document.getElementById("receivedMsg");
 
-        socket.on("broadcast", (message)=>{
+        socket.on("broadcast", (message) => {
             receivedMsg.innerHTML = message;
         });
 
-        sendBtn.addEventListener("click", (e)=>{
+        sendBtn.addEventListener("click", (e) => {
             const message = msgInput.value;
             socket.emit("send", message);
         });
     </script>
 </body>
+
 </html>

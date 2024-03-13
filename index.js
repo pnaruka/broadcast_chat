@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require("http");
-const { port } = require('./config.js');
 const { Server } = require("socket.io");
 const path = require('path');
 
@@ -21,7 +20,7 @@ app.get('/', (req, res) => {
     return res.sendFile('/public/index.html');
 })
 
-
+const port = process.env.port || 3333;
 
 server.listen(port, () => {
     console.log(`Server up and listening on ${port}`);
