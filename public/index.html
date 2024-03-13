@@ -30,6 +30,7 @@
 
         sendBtn.addEventListener("click", (e) => {
             const message = msgInput.value;
+            msgInput.value = "";
             socket.emit("send", message);
         });
     </script>
