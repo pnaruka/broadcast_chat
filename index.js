@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     return res.sendFile('/public/index.html');
 })
 
-const port = process.env.port || 3333;
+const port = process.env.PORT || 3333;
 
 server.listen(port, () => {
     console.log(`Server up and listening on ${port}`);
