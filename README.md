@@ -5,7 +5,7 @@ This is a simple application to broadcast messages from a user to all other conn
 
 ## Architecture:
 `index.js`: Contains server side code\
-`index.html`: Client side code\
+`index.html`: Client side code
 
 ## Installation:
 To install the project, follow these steps:
